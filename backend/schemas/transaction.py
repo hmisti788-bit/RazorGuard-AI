@@ -10,10 +10,10 @@ class TransactionFeatures(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     transaction_id: str | None = Field(default=None, min_length=1, max_length=80)
-    amount: float = Field(gt=0, le=5000)
+    amount: float = Field(gt=0, le=500000)
     hour: int = Field(ge=0, le=23)
     transaction_frequency: int = Field(ge=1, le=30)
-    average_amount: float = Field(gt=0, le=5000)
+    average_amount: float = Field(gt=0, le=500000)
     recipient_is_new: int = Field(ge=0, le=1)
     device_changed: int = Field(ge=0, le=1)
     location_changed: int = Field(ge=0, le=1)
